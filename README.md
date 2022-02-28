@@ -1,4 +1,6 @@
-# Data-Structures-and-Algorithms
+# Repository is under construction # 
+
+Data-Structures-and-Algorithms
 ## Synopsis 
 This repository contains common Data Structures and Algorithms that most Computer Science and Engineering enthusiasts will work with. 
 
