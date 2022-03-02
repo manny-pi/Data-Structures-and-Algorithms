@@ -3,8 +3,7 @@ package lists;
 import java.util.Iterator;
 
 
-public class LinkedList<E> implements Iterable<E> { 
-
+public class SinglyLinkedList<E> implements Iterable<E> { 
 
 	private class Node<T> { 
 		T data; 
@@ -22,18 +21,17 @@ public class LinkedList<E> implements Iterable<E> {
 		}
 	}
 
-
 	private Node<E> head; 
 	private int size; 
 
-	public LinkedList() { 
+	public SinglyLinkedList() { 
 		this.head = null; 
 	}
 
-	
 	public void add(E data) { 
 		if (this.head == null) { 
 			this.head = new Node<E>(data); 
+			
 		} else { 
 			Node<E> curr = head; 
 			while(curr.next != null) { 
@@ -44,10 +42,10 @@ public class LinkedList<E> implements Iterable<E> {
 		this.size++; 
 	}
 	
-	
 	public boolean remove(E data) {
 		if (head.data.equals(data)) { 
 			this.head = this.head.next; 
+			
 		} else { 
 			Node<E> curr = this.head; 
 			while(curr != null) { 
@@ -61,7 +59,6 @@ public class LinkedList<E> implements Iterable<E> {
 		
 		return false; 
 	}	
-	
 	
 	public E get(int index) { 
 		E retval = null; 
@@ -80,16 +77,14 @@ public class LinkedList<E> implements Iterable<E> {
 		return retval; 
 	}
 
-
 	public int size() { 
 
 		return this.size; 
 	}
 
-
 	public Iterator<E> iterator() {
 		return new Iterator<E>() {
-			Node<E> curr = LinkedList.this.head; 
+			Node<E> curr = SinglyLinkedList.this.head; 
 			E data; 
 
 			@Override
@@ -107,7 +102,6 @@ public class LinkedList<E> implements Iterable<E> {
 		};
 	}
 
-
 	@Override
 	public String toString() { 
 		Iterator<E> iter = this.iterator(); 
@@ -120,9 +114,8 @@ public class LinkedList<E> implements Iterable<E> {
 		return retval; 
 	}
 
-
 	public static void main(String[] args) { 
-		LinkedList<Integer> l = new LinkedList<>(); 
+		SinglyLinkedList<Integer> l = new SinglyLinkedList<>(); 
 		for(int i = 0; i < 10; i++) { 
 			Integer k = i; 
 			l.add(k); 

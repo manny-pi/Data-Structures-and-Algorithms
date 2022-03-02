@@ -107,7 +107,7 @@ public class Queue<E> implements Iterable<E> {
 	}
 
 	
-	/* private methods */ 
+	/* -- private methods -- */ 
 	private void addToEnd(E data) { 
 		if (this.head == null) { 
 			this.head = new Node<>(data); 
