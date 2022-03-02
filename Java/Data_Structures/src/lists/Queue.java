@@ -20,65 +20,59 @@ public class Queue<E> implements Iterable<E> {
 
 			return data.toString(); 
 		}
+		
+		@Override
+		public boolean equals(Object b) { 
+			if (this == b) { 
+				return true; 
+			} 
+			
+			Node<T> B = null; 
+			if (b instanceof Node) { 
+				B = (Node<T>) b; 
+				
+			} else { 
+				return false; 
+			}
+			
+			if (this.data.equals(B.data)) { 
+				return true; 
+			}
+			
+			return false; 
+		}
 	}
 
-
 	private Node<E> head; 
+	private Node<E> tail; 
 	private int size; 
 
 	public Queue() { 
 		this.head = null; 
+		this.tail = null; 
 	}
 
-
-	public void addToHead(E data) { 
-		
+	/* Adds data to the end of the line */ 
+	public void add(E data) { 
+		this.addToEnd(data);
 	}
 	
-	
-	public void addToTail(E data) { 
+	public E next() throws Exception {
 		if (this.head == null) { 
-			this.head = new Node<E>(data); 
-		} else { 
-			Node<E> curr = head; 
-			while(curr.next != null) { 
-				curr = curr.next;
-			}
-			curr.next = new Node<E>(data); 
-		}
-		this.size++; 
-	}
-	
-	
-	public void remove() {
+			throw new Exception("Queue is Empty"); 
+		} 
 		
-		
-	}
-	
-	
-	public E get(int index) { 
-		E retval = null; 
-		if (index > this.size - 1 || index < 0) { 
-			throw new IllegalArgumentException("Index out of range"); 
-		}
-		int i = 0; 
-		for(E e: this) { 
-			if (i == index) {
-				retval = e; 
-				break; 
-			}
-			i++; 
-		}
+		E retval = this.head.data; 
+		this.head = this.head.next; 
+		this.size--; 
 		
 		return retval; 
 	}
-
-
+	
 	public int size() { 
 
 		return this.size; 
 	}
-
 
 	public Iterator<E> iterator() {
 		return new Iterator<E>() {
@@ -100,7 +94,6 @@ public class Queue<E> implements Iterable<E> {
 		};
 	}
 
-
 	@Override
 	public String toString() { 
 		Iterator<E> iter = this.iterator(); 
@@ -113,13 +106,44 @@ public class Queue<E> implements Iterable<E> {
 		return retval; 
 	}
 
-
+	
+	/* private methods */ 
+	private void addToEnd(E data) { 
+		if (this.head == null) { 
+			this.head = new Node<>(data); 
+			
+		} else if (this.tail == null) { 
+			this.tail = new Node<>(data); 
+			this.head.next = this.tail; 
+			
+		} else { 
+			Node<E> newTail = new Node<>(data); 
+			this.tail.next = newTail;
+			this.tail = newTail; 
+		}
+		this.size++; 
+	}
+	
+	
+	/* Test Queue */ 
 	public static void main(String[] args) { 
-		LinkedList<Integer> l = new LinkedList<>(); 
+		Queue<Integer> l = new Queue<>(); 
 		for(int i = 0; i < 10; i++) { 
 			Integer k = i; 
 			l.add(k); 
 		}
-		System.out.println(l);
+		
+		System.out.println("l = " + l);
+		System.out.println("Size = " + l.size()); 
+		
+		for(int i = 0; i < 5; i++) { 
+			try { 
+				System.out.println(l.next()); 
+			} catch(Exception e) { 
+				
+			}
+		}
+		System.out.println("l = " + l);
+		System.out.println("New size = " + l.size()); 
 	}
 }

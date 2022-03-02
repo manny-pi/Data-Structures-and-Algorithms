@@ -45,10 +45,22 @@ public class LinkedList<E> implements Iterable<E> {
 	}
 	
 	
-	public void remove() {
+	public boolean remove(E data) {
+		if (head.data.equals(data)) { 
+			this.head = this.head.next; 
+		} else { 
+			Node<E> curr = this.head; 
+			while(curr != null) { 
+				if (curr.next.data.equals(data)) { 
+					curr.next = curr.next.next; 
+					
+					return true;
+				}
+			}
+		}
 		
-		
-	}
+		return false; 
+	}	
 	
 	
 	public E get(int index) { 
