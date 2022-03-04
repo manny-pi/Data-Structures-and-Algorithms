@@ -145,5 +145,17 @@ public class Queue<E> implements Iterable<E> {
 		}
 		System.out.println("l = " + l);
 		System.out.println("New size = " + l.size()); 
+		
+		l.add(12);
+		l.add(24);
+		for(Integer i: l) { 
+			System.out.println(i); 
+		}
+		
+		try { 
+			System.out.println(l.next()); 
+		} catch(Exception e) { 
+			System.out.println(e.getMessage());
+		}
 	}
 }
