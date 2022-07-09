@@ -1,5 +1,6 @@
 package lists;
 
+import lists.SinglyLinkedList;
 import java.security.Key;
 
 public class Hashtable {

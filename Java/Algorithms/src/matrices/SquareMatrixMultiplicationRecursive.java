@@ -27,7 +27,7 @@ public class SquareMatrixMultiplicationRecursive {
         return null; 
     }
     
-    /* Note: int i is just to stop the compiler from complaining; redundant parameter*/ 
+    /* Note: i is just to stop the compiler from complaining; redundant parameter*/ 
     public static ArrayList<ArrayList<Integer>> squareMatrixMultiplication(int[][] A, int[][] B, int i) {
         int n = A.length; 
         

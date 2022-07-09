@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class Queue<E> implements Iterable<E> { 
 
-
+	/* */ 
 	private class Node<T> { 
 		T data; 
 		Node<T> next; 
