@@ -17,6 +17,10 @@ the structures I implement are on the internet for free!
 As the repo grows, I'll add more resources, but for now, these are my primary sources for information that I used to build this repo 
 
 ### Textbooks 
+Algorithms - Jeff Erickson
+Algorithms To Live By - Brian Christian, Tom Griffiths
+Elements of Programming Interviews - Adnan Aziz, Tsung-Hsien Lee, and Amit Prakash
+Introduction to Algorithms (3rd Edition) - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
 
 ### YouTube Channels 
 
